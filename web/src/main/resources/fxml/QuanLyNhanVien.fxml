@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.controllers.NhanVienController" style="-fx-background-color: #f4f4f4;">
+
+    <!-- Cấu hình padding và spacing -->
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="10"/>
+    </padding>
+    <spacing>10</spacing>
+
+    <!-- Tiêu đề -->
+    <Label text="QUẢN LÝ NHÂN VIÊN" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <!-- Nội dung chính -->
+    <HBox spacing="10">
+        <!-- Cột bên trái - Form nhập liệu -->
+        <VBox spacing="5" prefWidth="300">
+            <Label text="Mã nhân viên:" />
+            <TextField fx:id="maNhanVienField" />
+
+            <Label text="Họ và tên:" />
+            <TextField fx:id="hoVaTenField" />
+
+            <Label text="Giới tính:" />
+            <ComboBox fx:id="gioiTinhComboBox" />
+
+            <Label text="Số điện thoại:" />
+            <TextField fx:id="sdtField" />
+
+            <Label text="Ngày sinh:" />
+            <DatePicker fx:id="ngaySinhPicker" />
+
+            <Label text="Mã chức vụ:" />
+            <TextField fx:id="maChucVuField" />
+        </VBox>
+
+        <!-- Cột bên phải - Địa chỉ và nút bấm -->
+        <VBox spacing="5">
+            <Label text="Địa chỉ:" />
+            <TextArea fx:id="diaChiArea" prefWidth="300" prefHeight="150" />
+
+            <!-- Nhóm nút chức năng -->
+            <HBox spacing="10" alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="20" bottom="10" left="10"/>
+                </padding>
+
+                <Button fx:id="themButton" text="Thêm" onAction="#handleThemNhanVien" style="-fx-background-color: #4CAF50; -fx-text-fill: white;">
+                    <prefWidth>80</prefWidth>
+                </Button>
+
+                <Button fx:id="suaButton" text="Sửa" onAction="#handleSuaNhanVien" disable="true" style="-fx-background-color: #2196F3; -fx-text-fill: white;">
+                    <prefWidth>80</prefWidth>
+                </Button>
+
+                <Button fx:id="xoaButton" text="Xóa" onAction="#handleXoaNhanVien" disable="true" style="-fx-background-color: #f44336; -fx-text-fill: white;">
+                    <prefWidth>80</prefWidth>
+                </Button>
+
+                <Button fx:id="lamMoiButton" text="Làm mới" onAction="#handleLamMoi" style="-fx-background-color: #607D8B; -fx-text-fill: white;">
+                    <prefWidth>80</prefWidth>
+                </Button>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <!-- Bảng hiển thị danh sách -->
+    <TableView fx:id="nhanVienTable" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="maNhanVienColumn" text="Mã NV" prefWidth="80"/>
+            <TableColumn fx:id="hoVaTenColumn" text="Họ và tên" prefWidth="150"/>
+            <TableColumn fx:id="gioiTinhColumn" text="Giới tính" prefWidth="80"/>
+            <TableColumn fx:id="sdtColumn" text="SĐT" prefWidth="100"/>
+            <TableColumn fx:id="ngaySinhColumn" text="Ngày sinh" prefWidth="100"/>
+            <TableColumn fx:id="diaChiColumn" text="Địa chỉ" prefWidth="200"/>
+            <TableColumn fx:id="maChucVuColumn" text="Mã CV" prefWidth="80"/>
+        </columns>
+    </TableView>
+</VBox>
